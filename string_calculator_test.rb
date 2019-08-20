@@ -39,6 +39,10 @@ class StringCalculatorTest < Minitest::Test
     assert_equal 'Negatives not allowed: [-1]', add('-1,2')
   end
 
+  def test_return_sum_but_ignore_values_greater_than_1000
+    assert_equal 1000, add('1000,1001')
+  end
+
   private
 
   def add numbers

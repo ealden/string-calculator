@@ -16,10 +16,12 @@ class StringCalculator
 
     negatives = values.select { |value| value < 0 }
 
-    if negatives.empty?
-      values.inject 0, :+
-    else
-      "Negatives not allowed: #{negatives}"
+    unless negatives.empty?
+      return "Negatives not allowed: #{negatives}"
     end
+
+    values = values.reject { |value| value > 1000 }
+
+    values.inject 0, :+
   end
 end
