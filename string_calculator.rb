@@ -24,9 +24,7 @@ class StringCalculator
 
     negatives = values.select { |value| value.negative? }
 
-    unless negatives.empty?
-      return "Negatives not allowed: #{negatives}"
-    end
+    return "Negatives not allowed: #{negatives}" unless negatives.empty?
 
     values = values.reject { |value| value > 1000 }
 
