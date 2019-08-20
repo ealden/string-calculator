@@ -23,6 +23,10 @@ class StringCalculatorTest < Minitest::Test
     assert_equal 3, add('1\n2')
   end
 
+  def test_return_sum_with_different_delimiter
+    assert_equal 3, add('//;\n1;2')
+  end
+
   private
 
   def add numbers
