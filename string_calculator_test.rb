@@ -7,6 +7,10 @@ class StringCalculatorTest < Minitest::Test
     assert_equal 0, add("")
   end
 
+  def test_return_number_if_numbers_is_not_empty
+    assert_equal 1, add("1")
+  end
+
   private
 
   def add numbers
