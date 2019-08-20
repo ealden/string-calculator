@@ -51,6 +51,10 @@ class StringCalculatorTest < Minitest::Test
     assert_equal 6, add('//[***][%]\n1%2***3')
   end
 
+  def test_return_sum_with_delimiter_of_any_length_and_multiple_new_lines
+    assert_equal 3, add('//%\n1\n2')
+  end
+
   private
 
   def add numbers
