@@ -9,7 +9,9 @@ class StringCalculator
     if numbers.start_with? CUSTOM_DELIMITER
       numbers = numbers[2..]
 
-      delimiter, numbers = numbers.split NEW_LINE, 2
+      delimiter, numbers = numbers.split NEW_LINE
+
+      delimiter = delimiter.gsub('[', '').gsub(']', '')
     end
 
     numbers = numbers.gsub NEW_LINE, delimiter
