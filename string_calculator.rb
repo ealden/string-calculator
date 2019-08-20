@@ -15,7 +15,7 @@ class StringCalculator
     end
 
     delimiters.each do |delimiter|
-      delimiter = delimiter.gsub('[', '').gsub(']', '')
+      delimiter = delimiter.delete '[]'
 
       numbers = numbers.gsub delimiter, DEFAULT_DELIMITER
     end
