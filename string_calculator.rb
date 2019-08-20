@@ -4,23 +4,24 @@ class StringCalculator
   NEW_LINE = '\n'
 
   def add numbers
+    delimiters = [NEW_LINE]
+
     if numbers.start_with? CUSTOM_DELIMITER
       numbers = numbers[2..]
 
       delimiter, numbers = numbers.split NEW_LINE
 
-      delimiters = delimiter.split ']['
-
-      delimiters.collect do |delimiter|
-        delimiter = delimiter.gsub('[', '').gsub(']', '')
-
-        numbers = numbers.gsub delimiter, DEFAULT_DELIMITER
-      end
+      delimiters = delimiters + delimiter.split('][')
     end
 
-    numbers = numbers.gsub NEW_LINE, DEFAULT_DELIMITER
+    delimiters.each do |delimiter|
+      delimiter = delimiter.gsub('[', '').gsub(']', '')
+
+      numbers = numbers.gsub delimiter, DEFAULT_DELIMITER
+    end
 
     values = numbers.split DEFAULT_DELIMITER
+
     values = values.map &:to_i
 
     negatives = values.select { |value| value < 0 }
