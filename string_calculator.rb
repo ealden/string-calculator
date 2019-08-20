@@ -24,7 +24,7 @@ class StringCalculator
 
     values = values.map &:to_i
 
-    negatives = values.select { |value| value < 0 }
+    negatives = values.select { |value| value.negative? }
 
     unless negatives.empty?
       return "Negatives not allowed: #{negatives}"
