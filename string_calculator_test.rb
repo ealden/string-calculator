@@ -11,6 +11,10 @@ class StringCalculatorTest < Minitest::Test
     assert_equal 1, add("1")
   end
 
+  def test_return_sum_if_numbers_has_one_comma
+    assert_equal 3, add("1,2")
+  end
+
   private
 
   def add numbers
