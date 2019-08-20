@@ -19,7 +19,7 @@ class StringCalculator
     if negatives.empty?
       values.inject 0, :+
     else
-      'Negatives not allowed'
+      "Negatives not allowed: #{negatives}"
     end
   end
 end

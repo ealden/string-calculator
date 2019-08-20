@@ -28,15 +28,15 @@ class StringCalculatorTest < Minitest::Test
   end
 
   def test_return_exception_if_numbers_has_one_negative_value
-    assert_equal 'Negatives not allowed', add('-1')
+    assert_equal 'Negatives not allowed: [-1]', add('-1')
   end
 
   def test_return_exception_if_numbers_has_many_negative_values
-    assert_equal 'Negatives not allowed', add('-1,-2')
+    assert_equal 'Negatives not allowed: [-1, -2]', add('-1,-2')
   end
 
   def test_return_exception_if_numbers_has_a_negative_value_but_positive_total
-    assert_equal 'Negatives not allowed', add('-1,2')
+    assert_equal 'Negatives not allowed: [-1]', add('-1,2')
   end
 
   private
