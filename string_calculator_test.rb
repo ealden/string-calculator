@@ -15,6 +15,10 @@ class StringCalculatorTest < Minitest::Test
     assert_equal 3, add("1,2")
   end
 
+  def test_return_sum_if_numbers_has_many_values
+    assert_equal 15, add("1,2,3,4,5")
+  end
+
   private
 
   def add numbers
