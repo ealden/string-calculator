@@ -9,16 +9,10 @@ class StringCalculator
       number = numbers[3..]
     end
 
-    sum = 0
-
     numbers = numbers.gsub '\n', delimiter
 
     values = numbers.split delimiter
 
-    values.each do |value|
-      sum += value.to_i
-    end
-
-    sum
+    values.map(&:to_i).inject 0, :+
   end
 end
