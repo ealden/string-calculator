@@ -3,6 +3,8 @@ class StringCalculator
   CUSTOM_DELIMITER = '//'
   NEW_LINE = '\n'
 
+  MAX_VALUE = 1000
+
   def add numbers
     delimiters = [NEW_LINE]
 
@@ -26,7 +28,7 @@ class StringCalculator
 
     return "Negatives not allowed: #{negatives}" unless negatives.empty?
 
-    values = values.reject { |value| value > 1000 }
+    values = values.reject { |value| value > MAX_VALUE }
 
     values.inject 0, :+
   end
