@@ -12,13 +12,14 @@ class StringCalculator
     numbers = numbers.gsub '\n', delimiter
 
     values = numbers.split delimiter
+    values = values.map &:to_i
 
-    sum = values.map(&:to_i).inject 0, :+
+    negatives = values.select { |value| value < 0 }
 
-    if sum < 0
-      return 'Negatives not allowed'
+    if negatives.empty?
+      values.inject 0, :+
     else
-      sum
+      'Negatives not allowed'
     end
   end
 end

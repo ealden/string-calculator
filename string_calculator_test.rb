@@ -35,6 +35,10 @@ class StringCalculatorTest < Minitest::Test
     assert_equal 'Negatives not allowed', add('-1,-2')
   end
 
+  def test_return_exception_if_numbers_has_a_negative_value_but_positive_total
+    assert_equal 'Negatives not allowed', add('-1,2')
+  end
+
   private
 
   def add numbers
