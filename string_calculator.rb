@@ -20,9 +20,7 @@ class StringCalculator
       numbers = numbers.gsub delimiter, DEFAULT_DELIMITER
     end
 
-    values = numbers.split DEFAULT_DELIMITER
-
-    values = values.map &:to_i
+    values = numbers.split(DEFAULT_DELIMITER).map &:to_i
 
     negatives = values.select { |value| value.negative? }
 
