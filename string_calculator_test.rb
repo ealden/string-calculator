@@ -27,6 +27,10 @@ class StringCalculatorTest < Minitest::Test
     assert_equal 3, add('//;\n1;2')
   end
 
+  def test_return_exception_if_numbers_has_one_negative_value
+    assert_equal 'Negatives not allowed', add('-1')
+  end
+
   private
 
   def add numbers
