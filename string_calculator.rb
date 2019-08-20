@@ -1,15 +1,18 @@
 class StringCalculator
   DEFAULT_DELIMITER = ','
+  CUSTOM_DELIMITER = '//'
+  NEW_LINE = '\n'
 
   def add numbers
     delimiter = DEFAULT_DELIMITER
 
-    if numbers.start_with? '//'
-      delimiter = numbers[2]
-      number = numbers[3..]
+    if numbers.start_with? CUSTOM_DELIMITER
+      numbers = numbers[2..]
+
+      delimiter, numbers = numbers.split NEW_LINE, 2
     end
 
-    numbers = numbers.gsub '\n', delimiter
+    numbers = numbers.gsub NEW_LINE, delimiter
 
     values = numbers.split delimiter
     values = values.map &:to_i
