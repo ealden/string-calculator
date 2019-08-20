@@ -7,7 +7,7 @@ class StringCalculator
     delimiters = [NEW_LINE]
 
     if numbers.start_with? CUSTOM_DELIMITER
-      numbers = numbers[CUSTOM_DELIMITER.length..]
+      numbers = numbers.delete_prefix CUSTOM_DELIMITER
 
       delimiter, numbers = numbers.split NEW_LINE, 2
 
