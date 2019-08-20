@@ -19,6 +19,10 @@ class StringCalculatorTest < Minitest::Test
     assert_equal 15, add('1,2,3,4,5')
   end
 
+  def test_return_sum_with_new_line_delimiter
+    assert_equal 3, add('1\n2')
+  end
+
   private
 
   def add numbers

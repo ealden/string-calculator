@@ -4,6 +4,8 @@ class StringCalculator
   def add numbers
     sum = 0
 
+    numbers = numbers.gsub '\n', DELIMITER
+
     values = numbers.split DELIMITER
 
     values.each do |value|
