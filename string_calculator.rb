@@ -13,12 +13,12 @@ class StringCalculator
 
       delimiter, numbers = numbers.split NEW_LINE, 2
 
-      delimiters = delimiters + delimiter.split('][')
+      custom_delimeters = delimiter.split('][').collect { |delimiter| delimiter.delete '[]' }
+
+      delimiters = delimiters + custom_delimeters
     end
 
     delimiters.each do |delimiter|
-      delimiter = delimiter.delete '[]'
-
       numbers = numbers.gsub delimiter, DEFAULT_DELIMITER
     end
 
