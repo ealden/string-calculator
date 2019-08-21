@@ -30,6 +30,6 @@ class StringCalculator
 
     values = values.reject { |value| value > MAX_VALUE }
 
-    values.inject 0, :+
+    values.sum
   end
 end
