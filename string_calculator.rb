@@ -9,17 +9,15 @@ class StringCalculator
     delimiters = [NEW_LINE]
 
     if numbers.start_with? CUSTOM_DELIMITER
-      numbers = numbers.delete_prefix CUSTOM_DELIMITER
+      numbers.delete_prefix! CUSTOM_DELIMITER
 
       delimiter, numbers = numbers.split NEW_LINE, 2
 
-      custom_delimeters = delimiter.split('][').collect { |delimiter| delimiter.delete '[]' }
-
-      delimiters = delimiters + custom_delimeters
+      delimiters += delimiter.split('][').collect { |delimiter| delimiter.delete '[]' }
     end
 
     delimiters.each do |delimiter|
-      numbers = numbers.gsub delimiter, DEFAULT_DELIMITER
+      numbers.gsub! delimiter, DEFAULT_DELIMITER
     end
 
     values = numbers.split(DEFAULT_DELIMITER).map &:to_i
@@ -28,7 +26,7 @@ class StringCalculator
 
     return "Negatives not allowed: #{negatives}" unless negatives.empty?
 
-    values = values.reject { |value| value > MAX_VALUE }
+    values.reject! { |value| value > MAX_VALUE }
 
     values.sum
   end
